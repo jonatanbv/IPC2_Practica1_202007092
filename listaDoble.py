@@ -40,3 +40,26 @@ class ListaDoble:
                     aux2.nombre = temp
                 aux2 = aux2.siguiente
             aux = aux.siguiente
+
+    def escribirXML(self):
+        if self.primero is None:
+            print('la lista esta vacia')
+        else:
+            stringin = ''
+            stringin = '<ListaPlataformas>\n'+stringin
+
+            aux = self.primero
+            while aux is not None:
+                
+                stringin = stringin+'\t<Plataforma>\n'
+                stringin = stringin+f'\t\t<codigo>{aux.codigo}</codigo>\n'
+                stringin = stringin+f'\t\t<nombre>{aux.nombre}</nombre>\n'
+                stringin = stringin+'\t</Plataformas>\n'
+                aux = aux.siguiente
+
+            stringin = stringin + '</ListaPlataformas>\n'
+            
+            return stringin
+
+
+
